@@ -18,26 +18,35 @@
             <form class="col-md-3 d-grid gap-2 ">
                 <p class="text-start fs-4 mb-0">Search for a City:</p>
                 <input type="text" placeholder="City Name" id="cityInput">
-                <button type="submit" class="btn btn-outline-info btn-sm rounded">Search</button>
+                <button id="srchBtn" type="button" class="btn btn-outline-info btn-sm rounded">Search</button>
                 <hr>
                 <div id="prevSearch"></div>
             </form>
             <section class="col-md-9 d-grid gap-2">
                 <div class="row ms-4 border border-info rounded bg-info bg-opacity-25">
                     <h2 id="currentCity" class="text-start"> <span id="currentDate"> </span></h2>
-                        <ul class="list-unstyled">
-                            <li id="temp"></li>
-                            <li id="wind"></li>
-                            <li id="humid"></li>
-                        </ul>
+                        <div class="container" id="dataList">
+                        </div>
                 </div>
                 <div class="row ms-4">
-                    <h2 class="mb-0">5-Day Forecast:</h2>
-                    <div class="col border border-info rounded bg-info bg-opacity-10"></div>
-                    <div class="col border border-info rounded bg-info bg-opacity-10"></div>
-                    <div class="col border border-info rounded bg-info bg-opacity-10"></div>
-                    <div class="col border border-info rounded bg-info bg-opacity-10"></div>
-                    <div class="col border border-info rounded bg-info bg-opacity-10"></div>
+                    <div>
+                        <h2 class="mb-0">5-Day Forecast:</h2>
+                    </div>
+                    <div class="col border border-info rounded bg-info bg-opacity-10">
+                        <div class="container" id="futureForecast"></div>
+                    </div>
+                    <div class="col border border-info rounded bg-info bg-opacity-10">
+                        <div class="container" id="futureForecast"></div>
+                    </div>
+                    <div class="col border border-info rounded bg-info bg-opacity-10">
+                        <div class="container" id="futureForecast"></div>
+                    </div>
+                    <div class="col border border-info rounded bg-info bg-opacity-10">
+                        <div class="container" id="futureForecast"></div>
+                    </div>
+                    <div class="col border border-info rounded bg-info bg-opacity-10">
+                        <div class="container" id="futureForecast"></div>
+                    </div>
                 </div>
             </section>
         </div>
