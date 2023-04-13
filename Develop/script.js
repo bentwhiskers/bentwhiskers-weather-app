@@ -1,5 +1,7 @@
 // the user will enter a city name into the search area and hit search btn
-// search btn will have click event that 
+// search btn will have click event that runs geocode function to get lon and lat of city name input
+// geocode function will run currentWthr function and forecast function
+// 
 // 
 var cityInputEl = document.getElementById("cityInput");
 var searchBtn = document.getElementById("srchBtn");
@@ -54,10 +56,12 @@ function getForecast(lat, lon) {
 function geoCode(cityName) {
 
     fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=" + APIKey + "&units=imperial")
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
+        .then(function (response) {
+            return response.json();
         })
+        .then(function (data) {
+            console.log(data);
+        });
 
     // getCurrentWthr();
     // getForecast();
