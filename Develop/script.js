@@ -12,7 +12,6 @@ var listDataEl = document.getElementById("dataList");
 var APIKey = "699bc616274eb884e2703cfde40df755";
 var lat;
 var lon;
-var cityName = cityInputEl.textContent;
 
 function getCurrentWthr(lat, lon) {
 
@@ -23,7 +22,6 @@ function getCurrentWthr(lat, lon) {
         .then(function (data) {
             console.log(data);
 
-            for (var i = 0; i < data.length; i++) {
                 var listEl = document.createElement("ul");
                 var temp = document.createElement("li");
                 var wind = document.createElement("li");
@@ -36,8 +34,6 @@ function getCurrentWthr(lat, lon) {
                 listEl.appendChild(wind);
                 listEl.appendChild(humidity);
 
-
-            } 
         })
 
 };
@@ -50,22 +46,24 @@ function getForecast(lat, lon) {
         })
         .then(function (data) {
             console.log(data);
+            for (var i = 0; i < data.list.length; i += 8) {
+                console.log(data.list[i])
+            }
         })
 };
 
 function geoCode(cityName) {
 
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=" + APIKey + "&units=imperial")
+    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + cityInputEl.value + "&limit=1&appid=" + APIKey + "&units=imperial")
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data);
+
+            getCurrentWthr(data[0].lat, data[0].lon);
+            getForecast(data[0].lat, data[0].lon);
         });
-
-    // getCurrentWthr();
-    // getForecast();
-
 
 };
 
